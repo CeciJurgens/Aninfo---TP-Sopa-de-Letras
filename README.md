@@ -1,1 +1,25 @@
 # Sopa-de-Letras
+
+
+Trabajo Práctico  de la materia Análisis de la Información catedra Camejo - Riedel - Martínez Sastre de FIUBA.
+Sopa-de-Letras es un juego tradicional. Su objetivo es encontrar las palabras en el tablero.
+El mismo es un juego que se encuentra en producción, aún no se ha definido una tematica o mecanica distintiva. 
+
+## Grupo 07
+
+* **Cecilia Jurgens** -[CeciJurgens](https://github.com/CeciJurgens)
+* **Josefina Marianelli Keichian** -[Jsf-MK-ian](https://github.com/Jsf-MK-ian)
+* **Hernan Lagarde**-[infomario](https://github.com/informario)
+* **Melina Loscalzo**-[MelinaLoscalzo](https://github.com/MelinaLoscalzo)
+* **Pilar Paz Blanco** - [ppazb](https://github.com/ppazb)
+
+Corrector: **Manuel Camejo**
+
+## Aplicación
+
+El juego se desarrollara en Java y podra ejecutarse en la versión...
+
+## Desarrollo
+
+Fue desarrollado el proyecto mediante el entorno IntelliJ Idea. 
+

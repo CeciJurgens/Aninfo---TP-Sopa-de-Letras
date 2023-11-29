@@ -17,7 +17,7 @@ Corrector: **Manuel Camejo**
 
 ## Configuración del Entorno
 
-### Instalación de Java JDK 8 o superior
+### 1. Instalación de Java JDK 8 o superior
 
 #### Sistemas Operativos Windows, Linux y Mac
 
@@ -34,7 +34,7 @@ Corrector: **Manuel Camejo**
     Accede al siguiente enlace para descargar en Mac: https://www.java.com/es/download/apple.jsp
     Tutorial:https://www.youtube.com/watch?v=kwTkSuH9bms
 
-### Configuración del Entorno de Desarrollo
+### 2. Configuración del Entorno de Desarrollo
 
 #### IntelliJ IDEA (Windows y macOS)
 
@@ -56,7 +56,7 @@ Corrector: **Manuel Camejo**
   
      Eclipse: https://www.eclipse.org/downloads/ 
 
-  **Configuración del proyecto:**
+### 3.Configuración del proyecto:
    - Abre el entorno de desarrollo y configura el proyecto siguiendo sus pasos específicos. Asegúrate de tener Java JDK configurado correctamente.
 
 

@@ -15,18 +15,62 @@ El mismo es un juego que se encuentra en producción, aún no se ha definido una
 
 Corrector: **Manuel Camejo**
 
-## Requisitos del Sistema
+## Configuración del Entorno
 
-El juego se desarrollara teniendo en cuenta estos requisitos:
-- Java JDK 8 o superior
-- Entorno de desarrolo compatible IntelliJ, Eclipse, Clion
+### Instalación de Java JDK 8 o superior
+
+#### Sistemas Operativos Windows, Linux y Mac
+
+   **Descargar Java Development Kit (JDK):** 
+   - Dirígete al sitio web oficial de Oracle o OpenJDK para descargar la versión correspondiente.
+   - Ejecuta el instalador descargado y sigue las instrucciones para completar la instalación.
+  
+    Accede al siguiente enlace para descargar en Windows: https://www.java.com/es/download/help/ie_online_install.html
+    Tutorial: https://youtu.be/7sBgP1ePSnM
+   
+    Accede al siguiente enlace para descargar en Linux: https://www.java.com/es/download/help/linux_install.html
+    Tutorial:https://www.youtube.com/watch?v=h6AZ8zopwUc
+   
+    Accede al siguiente enlace para descargar en Mac: https://www.java.com/es/download/apple.jsp
+    Tutorial:https://www.youtube.com/watch?v=kwTkSuH9bms
+
+### Configuración del Entorno de Desarrollo
+
+#### IntelliJ IDEA (Windows y macOS)
+
+1. **Descargar IntelliJ IDEA:**
+   - Ve al sitio web oficial de JetBrains y descarga IntelliJ IDEA Community o Ultimate Edition según tus preferencias.
+   - Sigue las instrucciones de instalación proporcionadas en el sitio, a continuación se presenta los enlaces según el sistema operativo:
+  
+    Accede al siguiente enlace para descargar en Windows: https://www.jetbrains.com/es-es/idea/download/?section=windows   
+    Accede al siguiente enlace para descargar en Linux: https://www.jetbrains.com/es-es/idea/download/?section=linux
+    Accede al siguiente enlace para descargar en Mac: https://www.jetbrains.com/es-es/idea/download/?section=mac
+
+   Tutorial: https://www.youtube.com/watch?v=aoW2gsmYBHQ
+
+#### Otros entornos de desarrollo (Eclipse, CLion, etc.) (Windows y macOS)
+
+2. **Descargar el entorno de desarrollo:**
+   - Ve al sitio web oficial del entorno de desarrollo que prefieras (Eclipse, CLion, etc.) y descarga la versión adecuada para tu sistema operativo.
+   - Sigue las instrucciones de instalación proporcionadas en el sitio.
+  
+     Eclipse: https://www.eclipse.org/downloads/ 
+
+3. **Configuración del proyecto:**
+   - Abre el entorno de desarrollo y configura el proyecto siguiendo sus pasos específicos. Asegúrate de tener Java JDK configurado correctamente.
+
 
 ## Instrucciones de Uso
 1. Clonar el repositorio en tu maquina.
 ```bash
 $ git clone @github.com:CeciJurgens/Aninfo---TP-Sopa-de-Letras.git
 ```
-2. Ejecutar la clase principal para correr la aplicacion
+
+2. **Configuración del proyecto:**
+   - Abre IntelliJ IDEA y selecciona "Open" para abrir el proyecto clonado de la Sopa de Letras.
+
+3. Ejecutar la clase principal para correr la aplicacion
+
 >```bash
 >$ java -jar <sopaletras.jar>
 >```

@@ -71,9 +71,9 @@ $ git clone @github.com:CeciJurgens/Aninfo---TP-Sopa-de-Letras.git
 
 3. Ejecutar la clase principal para correr la aplicacion
 
->```bash
->$ java -jar <sopaletras.jar>
->```
+```bash
+$ java -jar <sopaletras.jar>
+```
 
 ## Desarrollo
 

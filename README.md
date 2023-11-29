@@ -38,7 +38,7 @@ Corrector: **Manuel Camejo**
 
 #### IntelliJ IDEA (Windows y macOS)
 
-1. **Descargar IntelliJ IDEA:**
+ **Descargar IntelliJ IDEA:**
    - Ve al sitio web oficial de JetBrains y descarga IntelliJ IDEA Community o Ultimate Edition según tus preferencias.
    - Sigue las instrucciones de instalación proporcionadas en el sitio, a continuación se presenta los enlaces según el sistema operativo:
   
@@ -50,13 +50,13 @@ Corrector: **Manuel Camejo**
 
 #### Otros entornos de desarrollo (Eclipse, CLion, etc.) (Windows y macOS)
 
-2. **Descargar el entorno de desarrollo:**
+  **Descargar el entorno de desarrollo:**
    - Ve al sitio web oficial del entorno de desarrollo que prefieras (Eclipse, CLion, etc.) y descarga la versión adecuada para tu sistema operativo.
    - Sigue las instrucciones de instalación proporcionadas en el sitio.
   
      Eclipse: https://www.eclipse.org/downloads/ 
 
-3. **Configuración del proyecto:**
+  **Configuración del proyecto:**
    - Abre el entorno de desarrollo y configura el proyecto siguiendo sus pasos específicos. Asegúrate de tener Java JDK configurado correctamente.
 
 

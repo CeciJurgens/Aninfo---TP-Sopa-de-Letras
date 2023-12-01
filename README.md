@@ -25,14 +25,13 @@ Corrector: **Manuel Camejo**
    - Dirígete al sitio web oficial de Oracle o OpenJDK para descargar la versión correspondiente.
    - Ejecuta el instalador descargado y sigue las instrucciones para completar la instalación.
   
-    Accede al siguiente enlace para descargar en Windows: https://www.java.com/es/download/help/ie_online_install.html
-    Tutorial: https://youtu.be/7sBgP1ePSnM
-   
-    Accede al siguiente enlace para descargar en Linux: https://www.java.com/es/download/help/linux_install.html
-    Tutorial:https://www.youtube.com/watch?v=h6AZ8zopwUc
-   
-    Accede al siguiente enlace para descargar en Mac: https://www.java.com/es/download/apple.jsp
-    Tutorial:https://www.youtube.com/watch?v=kwTkSuH9bms
+     
+  [Accede al siguiente enlace para descargar en Windows](https://www.java.com/es/download/help/ie_online_install.html)
+
+  [Accede al siguiente enlace para descargar en Linux](https://www.java.com/es/download/help/linux_install.html)
+
+  [Accede al siguiente enlace para descargar en Mac](https://www.java.com/es/download/apple.jsp)
+
 
 ### 2. Configuración del Entorno de Desarrollo
 
@@ -41,20 +40,22 @@ Corrector: **Manuel Camejo**
  **Descargar IntelliJ IDEA:**
    - Ve al sitio web oficial de JetBrains y descarga IntelliJ IDEA Community o Ultimate Edition según tus preferencias.
    - Sigue las instrucciones de instalación proporcionadas en el sitio, a continuación se presenta los enlaces según el sistema operativo:
-  
-    Accede al siguiente enlace para descargar en Windows: https://www.jetbrains.com/es-es/idea/download/?section=windows   
-    Accede al siguiente enlace para descargar en Linux: https://www.jetbrains.com/es-es/idea/download/?section=linux
-    Accede al siguiente enlace para descargar en Mac: https://www.jetbrains.com/es-es/idea/download/?section=mac
 
-   Tutorial: https://www.youtube.com/watch?v=aoW2gsmYBHQ
+  [Accede al siguiente enlace para descargar en Windows](https://www.jetbrains.com/es-es/idea/download/?section=windows)
+    
+  [Accede al siguiente enlace para descargar en Linux](https://www.jetbrains.com/es-es/idea/download/?section=linux)
+
+  [Accede al siguiente enlace para descargar en Mac](https://www.jetbrains.com/es-es/idea/download/?section=mac)
+
 
 #### Otros entornos de desarrollo (Eclipse, CLion, etc.) (Windows y macOS)
 
   **Descargar el entorno de desarrollo:**
    - Ve al sitio web oficial del entorno de desarrollo que prefieras (Eclipse, CLion, etc.) y descarga la versión adecuada para tu sistema operativo.
    - Sigue las instrucciones de instalación proporcionadas en el sitio.
-  
-     Eclipse: https://www.eclipse.org/downloads/ 
+
+     [Página web de Eclipse](https://www.eclipse.org/downloads/)
+
 
 ### 3.Configuración del proyecto:
    - Abre el entorno de desarrollo y configura el proyecto siguiendo sus pasos específicos. Asegúrate de tener Java JDK configurado correctamente.

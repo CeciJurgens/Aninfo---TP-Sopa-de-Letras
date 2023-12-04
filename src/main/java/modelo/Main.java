@@ -10,9 +10,15 @@ public class Main {
         //    casillero.mostrarLetraTest();
         // }
 
-        //Chequeo que se setee correctamente el atributo (boolean) longitudValida
-        // Palabra p = new Palabra(1,2, 2,3)
+        //Chequeo metodo longitudPalabraValida
+        // Palabra p = new Palabra(1,2)
         // p.mostrarValidezLongitud()
+        //Chequeo metodo actualizacionEstadoPalabra
+        // p.mostrarEstadoPalabra()
+        // p.actualizacionEstadoPalabra(1,2)
+        // p.mostrarEstadoPalabra()
+
+
     }
 
 }

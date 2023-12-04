@@ -19,6 +19,6 @@ public class Casillero {
 
     //TODO: borrar funcion, es provisorio para chequeos.
     public void mostrarLetraTest(){
-        System.out.println(this.letra);
+        System.out.print(this.letra );
     }
 }

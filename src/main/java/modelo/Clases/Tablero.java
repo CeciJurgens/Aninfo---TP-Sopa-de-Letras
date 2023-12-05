@@ -28,7 +28,7 @@ public class Tablero{
     public void mostrarTablero() {
         for (int x = 0; x < filas; x++) {
             for (int y = 0; y < columnas; y++) {
-                tablero[x][y].mostrarLetraTest();
+                tablero[x][y].getLetra();
             }
         }
     }

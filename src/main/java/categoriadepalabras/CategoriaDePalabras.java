@@ -1,4 +1,6 @@
-package categoria.de.palabras;//El usuario de la clase obtiene las categor
+package categoria_de_palabras;
+//El usuario de la clase obtiene un arreglo de n strings de la categoria que indique, garantizando que son todos distintos.
+//Se devuelve una excepcion si la categoria no existe, o si n es mayor que la cantidad de palabras por listas
 
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -7,15 +7,15 @@ public class Palabra{
     private boolean encontrada;
     private boolean longitudValida;
 
-    public Palabra(int x, int y) {
+    public Palabra(int x, int y, int filasTablero, int columnasTablero) {
         this.coordenadaX = x;
         this.coordenadaY = y;
         this.encontrada = false;
-        this.longitudValida= false;
+        this.longitudValida= longitudEsValida(filasTablero, columnasTablero);
     }
 
     //TODO: revisar en refactor
-    private boolean longitudPalabraValida(int filasTablero, int columnasTablero){
+    private boolean longitudEsValida(int filasTablero, int columnasTablero){
         return this.coordenadaX >= 0 && this.coordenadaX <= filasTablero && this.coordenadaY >= 0 && this.coordenadaY <= columnasTablero
     }
 
@@ -28,19 +28,19 @@ public class Palabra{
         return  estadoPalabra != this.encontrada
     }
     //TODO: borrar funciones, provisorias para chequeos.
-    public void mostrarCoordenadaXPalabra(){
-        System.out.print(this.coordenadaX );
+    public void getCoordenadaX(){
+        return this.coordenadaX
     }
 
-    public void mostrarCoordenadaYPalabra(){
-        System.out.print(this.coordenadaY );
+    public void getCoordenadaY(){
+        return this.coordenadaY
     }
 
-    public void mostrarStatusPalabra(){
-        System.out.print(this.encontrada );
+    public void getStatusPalabra(){
+        return this.encontrada
     }
 
-    public void mostrarValidezLongitud(){
-        System.out.print(this.longitudValida )
+    public void getValidezLongitud(){
+        return this.longitudValida
     }    
 }

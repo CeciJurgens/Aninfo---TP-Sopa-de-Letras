@@ -24,6 +24,22 @@ public class Tablero{
         }
     }
 
+    public int getFilas(){
+        return filas;
+    }
+
+    public int getColumnas(){
+        return columnas;
+    }
+
+    public Casillero getCasillero(int fila,int columna){
+        if(fila >= 0 && fila < filas && columna >=0 && columna < columnas){
+            return tablero[fila][columna];
+        }else{
+            throw new IllegalArgumentException("Las coordenadas ingresadas se encuentran fuera del rango del tablero");
+        }
+    }
+
     // TODO: borrar función provisorio para chequeos
     public void mostrarTablero() {
         for (int x = 0; x < filas; x++) {

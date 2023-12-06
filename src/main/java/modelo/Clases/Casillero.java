@@ -40,4 +40,12 @@ public class Casillero {
         this.letra = letra;
         return true;
     }
+
+    public int getCoordenadaX() {
+        return coordenadaX;
+    }
+
+    public int getCoordenadaY(){
+        return coordenadaY;
+    }
 }

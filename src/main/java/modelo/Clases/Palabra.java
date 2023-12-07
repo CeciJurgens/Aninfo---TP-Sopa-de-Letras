@@ -3,18 +3,18 @@ import java.util.ArrayList;
 
 public class Palabra{
 
-    private ArrayList<int> coordenadasInicio;
-    private ArrayList<int> coordenadasFin;
+    private ArrayList<Integer> coordenadasInicio;
+    private ArrayList<Integer> coordenadasFin;
     private boolean encontrada;
 
-    public Palabra(ArrayList<int> coordsInicio, ArrayList<int> coordsFin) {
+    public Palabra(ArrayList<Integer> coordsInicio, ArrayList<Integer> coordsFin) {
         this.coordenadasInicio = coordsInicio;
         this.coordenadasFin = coordsFin;
         this.encontrada = false;
     }
     
     //TODO: revisar en refactor
-    private boolean actualizacionEstadoPalabra(ArrayList<int> coordsSeleccionadasInicio, ArrayList<int> coordsSeleccionadasFin){
+    private boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
         if (this.coordenadasInicio == coordsSeleccionadasInicio && this.coordenadasFin == coordsSeleccionadasFin){
             this.encontrada = true
@@ -23,15 +23,15 @@ public class Palabra{
     }
 
     //TODO: borrar funciones, provisorias para chequeos.
-    public void getCoordenadasInicio(){
+    public ArrayList<Integer> getCoordenadasInicio(){
         return this.coordenadasInicio
     }
 
-    public void getCoordenadaFin(){
+    public ArrayList<Integer> getCoordenadaFin(){
         return this.coordenadasFin
     }
 
-    public void getStatusPalabra(){
+    public ArrayList<Integer> getStatusPalabra(){
         return this.encontrada
     }
 

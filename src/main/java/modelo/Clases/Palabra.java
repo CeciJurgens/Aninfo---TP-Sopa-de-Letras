@@ -6,7 +6,6 @@ public class Palabra{
     private ArrayList<int> coordenadasInicio;
     private ArrayList<int> coordenadasFin;
     private boolean encontrada;
-    private boolean longitudValida;
 
     public Palabra(ArrayList<int> coordsInicio, ArrayList<int> coordsFin) {
         this.coordenadasInicio = coordsInicio;

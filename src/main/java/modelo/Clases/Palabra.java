@@ -31,7 +31,7 @@ public class Palabra{
         return this.coordenadasFin
     }
 
-    public ArrayList<Integer> getStatusPalabra(){
+    public ArrayList<Integer> getEstadoPalabra(){
         return this.encontrada
     }
 

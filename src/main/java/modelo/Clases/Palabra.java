@@ -17,22 +17,32 @@ public class Palabra{
     private boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
         if (this.coordenadasInicio == coordsSeleccionadasInicio && this.coordenadasFin == coordsSeleccionadasFin){
-            this.encontrada = true
+            this.encontrada = true;
         }
-        return  estadoPalabra != this.encontrada
+        return  estadoPalabra != this.encontrada;
     }
 
     //TODO: borrar funciones, provisorias para chequeos.
     public ArrayList<Integer> getCoordenadasInicio(){
-        return this.coordenadasInicio
+        return this.coordenadasInicio;
     }
 
     public ArrayList<Integer> getCoordenadaFin(){
-        return this.coordenadasFin
+        return this.coordenadasFin;
     }
 
-    public ArrayList<Integer> getStatusPalabra(){
-        return this.encontrada
+    public boolean getStatusPalabra(){
+        return this.encontrada;
+    }
+
+    public void setCoordenadasInicio(int x,int y){
+        this.coordenadasInicio.set(0,x);
+        this.coordenadasInicio.set(1,y);
+    }
+
+    public void setCoordenadasFin(int x,int y){
+        this.coordenadasFin.set(0,x);
+        this.coordenadasFin.set(1,y);
     }
 
 }

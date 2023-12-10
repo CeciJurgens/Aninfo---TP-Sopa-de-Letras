@@ -23,6 +23,29 @@ public class Tablero{
             }
         }
     }
+    //TODO: FALTA PLANTEAR Debe verificar si los casilleros para las palabras esten disponibles
+    // antes de colocarla. En el caso que algún casillero este ocupado, retornar false.
+    public boolean puedeColocarse(Palabra palabra, int x, int y){
+        return true;
+    }
+
+    // TODO: El método verifica la disponibilidad de los casilleros para la palabra y en caso, de estar
+    // TODO: disponibles, coloca la palabra en el tablero y actualiza las coordenadas.
+    public void asignarCoordenadasPalabras(Palabra palabra, int x, int y){
+        List<Integer> coordsInicio = palabra.getCoordenadasInicio();
+        List<Integer> coordsFin = palabra.getCoordenadaFin();
+        String casillero_contenido = palabra.toString();
+
+        for(int i=0;i <coordsFin.get(0) - coordsInicio.get(0);i++){
+            for(int j=0; j < coordsFin.get(1) - coordsInicio.get(1);j++){
+                tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i* coordsFin.get(0) + j), true);
+            }
+        }
+        //TODO:Asignar las coordenadas a la palabra
+        palabra.setCoordenadasInicio(x,y);
+        palabra.setCoordenadasFin(x + coordsFin.get(0) - coordsInicio.get(0), y + coordsFin.get(1) - coordsInicio.get(1) );
+
+    }
 
     public int getFilas(){
         return filas;

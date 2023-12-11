@@ -7,11 +7,18 @@ public class Palabra{
     private ArrayList<Integer> coordenadasInicio;
     private ArrayList<Integer> coordenadasFin;
     private boolean encontrada;
+    private boolean esHorizontal;
 
-    public Palabra(String unaPalabra,ArrayList<Integer> coordsInicio, ArrayList<Integer> coordsFin) {
+    public Palabra(String unaPalabra, boolean isHorizontal) {
         this.palabraStr = unaPalabra;
-        this.coordenadasInicio = coordsInicio;
-        this.coordenadasFin = coordsFin;
+        this.esHorizontal = isHorizontal;
+        this.coordenadasInicio = (0,0);
+        if (this.esHorizontal){
+            this.coordenadasFin = (0,(this.palabra).length()-1);
+        }
+        else{
+            this.coordenadasFin = ((this.palabra).length()-1,0);
+        }
         this.encontrada = false;
     }
     

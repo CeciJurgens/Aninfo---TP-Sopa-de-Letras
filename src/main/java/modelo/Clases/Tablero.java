@@ -34,7 +34,7 @@ public class Tablero{
     public void asignarCoordenadasPalabras(Palabra palabra, int x, int y){
         List<Integer> coordsInicio = palabra.getCoordenadasInicio();
         List<Integer> coordsFin = palabra.getCoordenadasFin();
-        String casillero_contenido = palabra.toString();
+        String casillero_contenido = palabra.palabra;
 
         for(int i=0;i <coordsFin.get(0) - coordsInicio.get(0);i++){
             for(int j=0; j < coordsFin.get(1) - coordsInicio.get(1);j++){

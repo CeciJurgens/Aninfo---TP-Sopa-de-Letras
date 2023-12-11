@@ -9,7 +9,7 @@ public class Palabra{
     private boolean encontrada;
 
     public Palabra(String unaPalabra,ArrayList<Integer> coordsInicio, ArrayList<Integer> coordsFin) {
-        this.palabra = unaPalabra;
+        this.palabraStr = unaPalabra;
         this.coordenadasInicio = coordsInicio;
         this.coordenadasFin = coordsFin;
         this.encontrada = false;
@@ -36,7 +36,7 @@ public class Palabra{
         return this.encontrada;
     }
 
-    public boolean getPalabraString(){
+    public String getPalabraString(){
         return this.palabraStr;
     }
 

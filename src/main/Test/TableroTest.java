@@ -1,9 +1,13 @@
+import modelo.Clases.Palabra;
 import modelo.Clases.Tablero;
 import modelo.Clases.Casillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TableroTest {
 
@@ -15,24 +19,24 @@ public class TableroTest {
     }
 
     @Test
-    public void tes01ObtenercasilleroFuerDelRango(){
+    public void Test01ObtenercasilleroFuerDelRango(){
         assertThrows(IllegalArgumentException.class, () -> {
             tablero.getCasillero(5, 5); // Las coordenadas ingresadas se encuentra fuera del rango
         });
     }
 
     @Test
-    public void test02GetFilas(){
+    public void Test02GetFilas(){
         assertEquals(3,tablero.getFilas());
     }
 
     @Test
-    public void tes03GetColumnas(){
+    public void Test03GetColumnas(){
         assertEquals(3,tablero.getColumnas());
     }
 
     @Test
-    public void test04InicializarTableroVacio(){
+    public void Test04InicializarTableroVacio(){
         for(int x=0; x < tablero.getFilas();x++){
             for(int y=0; y < tablero.getColumnas(); y++){
                 Casillero casillero = tablero.getCasillero(x,y);
@@ -44,12 +48,80 @@ public class TableroTest {
     }
 
     @Test
-    public void test05ObtenerCasilleroValido(){
+    public void Test05ObtenerCasilleroValido(){
         Casillero casillero = tablero.getCasillero(1,1);
         assertNotNull(casillero);
         assertEquals(1,casillero.getCoordenadaX());
         assertEquals(1,casillero.getCoordenadaY());
     }
 
+    @Test
+    public void Test06SePuedeColocarUnaPalabraEnCasillerosVacios(){
+        Tablero tablero = new Tablero(15,15);
+        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
+        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
+        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+
+        assertTrue(tablero.puedeColocarse(palabra,0,0));
+    }
+
+    @Test
+    public void Test07NoSePuedeColocarUnaPalabraEnCasillerosOcupados(){
+        Tablero tablero = new Tablero(5,5);
+        tablero.getCasillero(0,0).colocarLetra('A',true); //al pertenecer a una palabra el caracter cambia
+
+        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
+        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
+        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+
+        assertFalse(tablero.puedeColocarse(palabra,0,0));
+    }
+
+    @Test
+    public void Test08ColocarUnaPalabraEnCasillerosVacios(){
+        Tablero tablero = new Tablero(15,15);
+        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
+        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
+        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+
+       tablero.asignarCoordenadasPalabras(palabra,0,0);
+
+        boolean colocadas = true;
+        String palabraColocada = "MANGO";
+
+        for (int i = 0; i <= 4; i++) {
+            String letraCasillero = Character.toString(tablero.getCasillero(0,i).getLetra());
+            if(!letraCasillero.equals(palabraColocada.substring(i,i+1))){
+                colocadas = false;
+            }
+        }
+        //tablero.mostrarTablero();
+        assertTrue(colocadas);
+    }
+
+    @Test
+    public void Test09NoPuedoColocarUnaPalabraEnCasillerosOcupados(){
+        Tablero tablero = new Tablero(15,15);
+        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
+        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
+        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+        tablero.getCasillero(0,0).colocarLetra('A',true);
+
+
+        tablero.asignarCoordenadasPalabras(palabra,0,0);
+        boolean colocadas = true;
+        String palabraColocada = "MANGO";
+
+        for (int i = 0; i <= 4; i++) {
+            String letraCasillero = Character.toString(tablero.getCasillero(0,i).getLetra());
+            if(!letraCasillero.equals(palabraColocada.substring(i,i+1))){
+                colocadas = false;
+            }
+        }
+        assertFalse(colocadas);
+    }
+
 }
+
+
 

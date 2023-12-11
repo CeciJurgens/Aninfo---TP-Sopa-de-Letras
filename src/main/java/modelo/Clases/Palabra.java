@@ -23,8 +23,7 @@ public class Palabra{
         }
         return  estadoPalabra != this.encontrada;
     }
-
-    //TODO: borrar funciones, provisorias para chequeos.
+    
     public ArrayList<Integer> getCoordenadasInicio(){
         return this.coordenadasInicio;
     }

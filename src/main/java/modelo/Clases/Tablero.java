@@ -24,6 +24,38 @@ public class Tablero{
         }
     }
 
+    //TODO: podria agregarse un metodo a palabra que devuelva su largo para mejorar lectura del codigo.
+    public boolean puedeColocarse(Palabra palabra, int x, int y){
+        List<Integer> coordsInicio = palabra.getCoordenadasInicio();
+        List<Integer> coordsFin = palabra.getCoordenadasFin();
+        //Chequeo que ninguno este ocupado
+        for(int i=0; i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
+            for(int j = 0; j <= (coordsFin.get(1) - coordsInicio.get(1)); j++){
+                if(tablero[x+i][y+j].estaOcupado()){
+                    return false;}
+            }
+        }
+        return true;
+    }
+
+    public boolean asignarCoordenadasPalabras(Palabra palabra, int x, int y){
+        if(!puedeColocarse(palabra,x,y)){return false;}
+
+        List<Integer> coordsInicio = palabra.getCoordenadasInicio();
+        List<Integer> coordsFin = palabra.getCoordenadasFin();
+        String casillero_contenido = palabra.getPalabraString();
+
+        for(int i=0;i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
+            for(int j=0; j <= (coordsFin.get(1) - coordsInicio.get(1));j++){
+                tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i* coordsFin.get(0) + j), true);
+            }
+        }
+        //TODO:Asignar las coordenadas a la palabra
+        palabra.setCoordenadasInicio(x,y);
+        palabra.setCoordenadasFin(x + coordsFin.get(0) - coordsInicio.get(0), y + coordsFin.get(1) - coordsInicio.get(1) );
+        return true;
+    }
+
     public int getFilas(){
         return filas;
     }
@@ -43,6 +75,7 @@ public class Tablero{
     // TODO: borrar función provisorio para chequeos
     public void mostrarTablero() {
         for (int x = 0; x < filas; x++) {
+            System.out.print("\n");
             for (int y = 0; y < columnas; y++) {
                 tablero[x][y].getLetra();
             }

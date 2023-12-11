@@ -17,7 +17,6 @@ public class Casillero {
         this.letra = (char) (r.nextInt(26) + 'A');
     }
 
-    //TODO: borrar funcion, es provisorio para chequeos.
     public char getLetra() {
         System.out.print(this.letra);
         return this.letra;

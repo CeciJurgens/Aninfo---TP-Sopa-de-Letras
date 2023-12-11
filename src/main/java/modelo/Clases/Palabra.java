@@ -15,8 +15,7 @@ public class Palabra{
         this.coordenadasInicio = (0,0);
         if (this.esHorizontal){
             this.coordenadasFin = (0,(this.palabra).length()-1);
-        }
-        else{
+        }else{
             this.coordenadasFin = ((this.palabra).length()-1,0);
         }
         this.encontrada = false;

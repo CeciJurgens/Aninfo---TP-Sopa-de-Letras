@@ -14,25 +14,25 @@ public class Palabra{
     }
     
     //TODO: revisar en refactor
-    private boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
+    public boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
-        if (this.coordenadasInicio == coordsSeleccionadasInicio && this.coordenadasFin == coordsSeleccionadasFin){
-            this.encontrada = true
+        if (this.coordenadasInicio.equals(coordsSeleccionadasInicio) && this.coordenadasFin.equals(coordsSeleccionadasFin)){
+            this.encontrada = true;
         }
-        return  estadoPalabra != this.encontrada
+        return  estadoPalabra != this.encontrada;
     }
 
     //TODO: borrar funciones, provisorias para chequeos.
     public ArrayList<Integer> getCoordenadasInicio(){
-        return this.coordenadasInicio
+        return this.coordenadasInicio;
     }
 
     public ArrayList<Integer> getCoordenadaFin(){
-        return this.coordenadasFin
+        return this.coordenadasFin;
     }
 
-    public ArrayList<Integer> getEstadoPalabra(){
-        return this.encontrada
+    public boolean getEstadoPalabra(){
+        return this.encontrada;
     }
 
 }

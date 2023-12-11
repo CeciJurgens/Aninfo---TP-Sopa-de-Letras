@@ -16,8 +16,9 @@ public class Palabra{
     }
     
     //TODO: revisar en refactor
-    private boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
+    public boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
+
         if (this.coordenadasInicio == coordsSeleccionadasInicio && this.coordenadasFin == coordsSeleccionadasFin){
             this.encontrada = true;
         }
@@ -31,8 +32,8 @@ public class Palabra{
     public ArrayList<Integer> getCoordenadasFin(){
         return this.coordenadasFin;
     }
-
-    public boolean getStatusPalabra(){
+  
+    public boolean getEstadoPalabra(){
         return this.encontrada;
     }
 
@@ -48,6 +49,8 @@ public class Palabra{
     public void setCoordenadasFin(int x,int y){
         this.coordenadasFin.set(0,x);
         this.coordenadasFin.set(1,y);
+
     }
+
 
 }

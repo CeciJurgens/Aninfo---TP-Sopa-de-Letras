@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Palabra{
 
-    private String palabra;
+    private String palabraStr;
     private ArrayList<Integer> coordenadasInicio;
     private ArrayList<Integer> coordenadasFin;
     private boolean encontrada;
@@ -35,6 +35,10 @@ public class Palabra{
 
     public boolean getStatusPalabra(){
         return this.encontrada;
+    }
+
+    public boolean getPalabraString(){
+        return this.palabraStr;
     }
 
     public void setCoordenadasInicio(int x,int y){

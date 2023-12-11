@@ -56,6 +56,10 @@ Corrector: **Manuel Camejo**
 
      [Página web de Eclipse](https://www.eclipse.org/downloads/)
 
+#### Instalacion de Maven 
+Para el proyecto se utilizará Apache Maven:
+- [Link a la página oficial](https://maven.apache.org/)
+- [Cómo agregar soporte a Maven en IntelliJ IDEA](https://www.jetbrains.com/help/idea/maven-support.html), alternativamente, [se lo puede configurar de la siguiente manera](https://www.jetbrains.com/help/idea/convert-a-regular-project-into-a-maven-project.html)
 
 ### 3.Configuración del proyecto:
    - Abre el entorno de desarrollo y configura el proyecto siguiendo sus pasos específicos. Asegúrate de tener Java JDK configurado correctamente.

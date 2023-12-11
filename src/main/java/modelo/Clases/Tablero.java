@@ -33,7 +33,7 @@ public class Tablero{
     // TODO: disponibles, coloca la palabra en el tablero y actualiza las coordenadas.
     public void asignarCoordenadasPalabras(Palabra palabra, int x, int y){
         List<Integer> coordsInicio = palabra.getCoordenadasInicio();
-        List<Integer> coordsFin = palabra.getCoordenadaFin();
+        List<Integer> coordsFin = palabra.getCoordenadasFin();
         String casillero_contenido = palabra.toString();
 
         for(int i=0;i <coordsFin.get(0) - coordsInicio.get(0);i++){

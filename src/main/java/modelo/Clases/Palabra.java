@@ -29,7 +29,7 @@ public class Palabra{
         return this.coordenadasInicio;
     }
 
-    public ArrayList<Integer> getCoordenadaFin(){
+    public ArrayList<Integer> getCoordenadasFin(){
         return this.coordenadasFin;
     }
 

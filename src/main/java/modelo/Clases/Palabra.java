@@ -3,11 +3,13 @@ import java.util.ArrayList;
 
 public class Palabra{
 
+    private String palabra;
     private ArrayList<Integer> coordenadasInicio;
     private ArrayList<Integer> coordenadasFin;
     private boolean encontrada;
 
-    public Palabra(ArrayList<Integer> coordsInicio, ArrayList<Integer> coordsFin) {
+    public Palabra(String unaPalabra,ArrayList<Integer> coordsInicio, ArrayList<Integer> coordsFin) {
+        this.palabra = unaPalabra;
         this.coordenadasInicio = coordsInicio;
         this.coordenadasFin = coordsFin;
         this.encontrada = false;

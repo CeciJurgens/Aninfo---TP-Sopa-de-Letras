@@ -1,29 +1,27 @@
 package modelo.Clases;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Palabra{
 
     private String palabraStr;
-    private ArrayList<Integer> coordenadasInicio;
-    private ArrayList<Integer> coordenadasFin;
+    private List<Integer> coordenadasInicio;
+    private List<Integer> coordenadasFin;
     private boolean encontrada;
     private boolean esHorizontal;
 
     public Palabra(String unaPalabra, boolean isHorizontal) {
         this.palabraStr = unaPalabra;
         this.esHorizontal = isHorizontal;
-        this.coordenadasInicio = new ArrayList<>(Arrays.asList(0, 0));
-        if (this.esHorizontal){
-            this.coordenadasFin = new ArrayList<>(Arrays.asList(0, this.palabraStr.length() - 1));;
-        }else{
-            this.coordenadasFin = new ArrayList<>(Arrays.asList(this.palabraStr.length() - 1, 0));
-        }
+        this.coordenadasInicio = Arrays.asList(0, 0);
+        this.coordenadasFin = esHorizontal ? Arrays.asList(0, palabraStr.length() - 1) : Arrays.asList(palabraStr.length() - 1, 0);
         this.encontrada = false;
     }
     
     //TODO: revisar en refactor
-    public boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
+    public boolean actualizacionEstadoPalabra(List<Integer> coordsSeleccionadasInicio, List<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
 
         if (this.coordenadasInicio.equals(coordsSeleccionadasInicio)  && this.coordenadasFin.equals(coordsSeleccionadasFin)){
@@ -32,11 +30,11 @@ public class Palabra{
         return  estadoPalabra != this.encontrada;
     }
     
-    public ArrayList<Integer> getCoordenadasInicio(){
+    public List<Integer> getCoordenadasInicio(){
         return this.coordenadasInicio;
     }
 
-    public ArrayList<Integer> getCoordenadasFin(){
+    public List<Integer> getCoordenadasFin(){
         return this.coordenadasFin;
     }
   

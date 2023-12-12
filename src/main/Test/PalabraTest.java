@@ -1,5 +1,4 @@
-package modelo.Clases;
-
+import modelo.Clases.Palabra;;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

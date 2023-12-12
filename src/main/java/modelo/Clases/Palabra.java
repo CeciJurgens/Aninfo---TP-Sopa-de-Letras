@@ -1,5 +1,6 @@
 package modelo.Clases;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Palabra{
 
@@ -12,11 +13,11 @@ public class Palabra{
     public Palabra(String unaPalabra, boolean isHorizontal) {
         this.palabraStr = unaPalabra;
         this.esHorizontal = isHorizontal;
-        this.coordenadasInicio = (0,0);
+        this.coordenadasInicio = new ArrayList<>(Arrays.asList(0, 0));
         if (this.esHorizontal){
-            this.coordenadasFin = (0,(this.palabra).length()-1);
+            this.coordenadasFin = new ArrayList<>(Arrays.asList(0, this.palabraStr.length() - 1));;
         }else{
-            this.coordenadasFin = ((this.palabra).length()-1,0);
+            this.coordenadasFin = new ArrayList<>(Arrays.asList(this.palabraStr.length() - 1, 0));
         }
         this.encontrada = false;
     }
@@ -25,7 +26,7 @@ public class Palabra{
     public boolean actualizacionEstadoPalabra(ArrayList<Integer> coordsSeleccionadasInicio, ArrayList<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
 
-        if (this.coordenadasInicio == coordsSeleccionadasInicio && this.coordenadasFin == coordsSeleccionadasFin){
+        if (this.coordenadasInicio.equals(coordsSeleccionadasInicio)  && this.coordenadasFin.equals(coordsSeleccionadasFin)){
             this.encontrada = true;
         }
         return  estadoPalabra != this.encontrada;

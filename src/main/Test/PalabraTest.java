@@ -1,13 +1,14 @@
-import modelo.Clases.Palabra;;
+import modelo.Clases.Palabra;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PalabraTest {
+public class PalabraTest {
 
     private Palabra palabra;
 
@@ -24,8 +25,8 @@ class PalabraTest {
     @Test
     public void Test03actualizacionEstadoPalabra(){
 
-        ArrayList<Integer> coordsSeleccionadasInicio = new ArrayList<>(Arrays.asList(0, 0));
-        ArrayList<Integer> coordsSeleccionadasFin = new ArrayList<>(Arrays.asList(0, 4));
+        List<Integer> coordsSeleccionadasInicio = Arrays.asList(0, 0);
+        List<Integer> coordsSeleccionadasFin = Arrays.asList(0, 4);
 
         boolean estadoAntes = palabra.getEstadoPalabra();
         boolean actualizacionResult = palabra.actualizacionEstadoPalabra(coordsSeleccionadasInicio, coordsSeleccionadasFin);
@@ -39,8 +40,8 @@ class PalabraTest {
     @Test
     public void Test04actualizacionEstadoPalabraNoEncontrado(){
 
-        ArrayList<Integer> coordsInicioSeleccionada = new ArrayList<>(Arrays.asList(5, 0));
-        ArrayList<Integer> coordsFinSeleccionada = new ArrayList<>(Arrays.asList(5, 4));
+        List<Integer> coordsInicioSeleccionada = Arrays.asList(5, 0);
+        List<Integer> coordsFinSeleccionada = Arrays.asList(5, 4);
 
         boolean estadoAntes = palabra.getEstadoPalabra();
         boolean actualizacionResult = palabra.actualizacionEstadoPalabra(coordsInicioSeleccionada, coordsFinSeleccionada);

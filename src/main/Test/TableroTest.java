@@ -125,4 +125,13 @@ public class TableroTest {
         }
         assertFalse(colocadas);
     }
+
+    @Test
+    public void Test10NoPuedoColocarPalabraFueraDeLimites(){
+        Tablero tablero = new Tablero(5, 5);
+        Palabra palabra = new Palabra("PALABRA", true);
+
+        assertFalse(tablero.asignarCoordenadasPalabras(palabra, 0, 5));
+    }
+
 }

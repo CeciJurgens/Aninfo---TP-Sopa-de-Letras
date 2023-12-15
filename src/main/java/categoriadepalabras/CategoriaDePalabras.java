@@ -52,6 +52,10 @@ public class CategoriaDePalabras {
                                 repeat=true;
                                 break;
                             }
+                            else if(this.listasDePalabras[x][indiceRandom].length() > LARGO_TABLERO){
+                                repeat=true;
+                                break;
+                            }
                         }
                         if(repeat==false){
                             listaDeLargoN[y] = this.listasDePalabras[x][indiceRandom];

@@ -32,13 +32,18 @@ public class Tablero{
         for(int i=0; i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
             for(int j = 0; j <= (coordsFin.get(1) - coordsInicio.get(1)); j++){
                 if(tablero[x+i][y+j].estaOcupado()){
-                    return false;}
+                    return false;
+                }
             }
         }
         return true;
     }
 
     public boolean asignarCoordenadasPalabras(Palabra palabra, int x, int y){
+        if (palabra.getPalabraString().length() > filas || palabra.getPalabraString().length() > columnas){
+            return false;
+        }
+
         if(!puedeColocarse(palabra,x,y)){return false;}
 
         List<Integer> coordsInicio = palabra.getCoordenadasInicio();

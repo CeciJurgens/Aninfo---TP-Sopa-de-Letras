@@ -1,11 +1,13 @@
+import modelo.Clases.Casillero;
 import modelo.Clases.Palabra;
 import modelo.Clases.Tablero;
-import modelo.Clases.Casillero;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +17,7 @@ public class TableroTest {
 
     @BeforeEach
     public void setUp(){
+
         tablero = new Tablero(3,3);
     }
 
@@ -27,11 +30,13 @@ public class TableroTest {
 
     @Test
     public void Test02GetFilas(){
+
         assertEquals(3,tablero.getFilas());
     }
 
     @Test
     public void Test03GetColumnas(){
+
         assertEquals(3,tablero.getColumnas());
     }
 
@@ -60,7 +65,7 @@ public class TableroTest {
         Tablero tablero = new Tablero(15,15);
         ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
         ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
-        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+        Palabra palabra = new Palabra("MANGO",true);
 
         assertTrue(tablero.puedeColocarse(palabra,0,0));
     }
@@ -70,9 +75,9 @@ public class TableroTest {
         Tablero tablero = new Tablero(5,5);
         tablero.getCasillero(0,0).colocarLetra('A',true); //al pertenecer a una palabra el caracter cambia
 
-        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
-        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
-        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+        List<Integer> coordsInicio = Arrays.asList(0, 0);
+        List<Integer> coordsFin = Arrays.asList(0, 4);
+        Palabra palabra = new Palabra("MANGO",true);
 
         assertFalse(tablero.puedeColocarse(palabra,0,0));
     }
@@ -80,11 +85,11 @@ public class TableroTest {
     @Test
     public void Test08ColocarUnaPalabraEnCasillerosVacios(){
         Tablero tablero = new Tablero(15,15);
-        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
-        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
-        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+        List<Integer> coordsInicio = Arrays.asList(0, 0);
+        List<Integer> coordsFin = Arrays.asList(0, 4);
+        Palabra palabra = new Palabra("MANGO",true);
 
-       tablero.asignarCoordenadasPalabras(palabra,0,0);
+        tablero.asignarCoordenadasPalabras(palabra,0,0);
 
         boolean colocadas = true;
         String palabraColocada = "MANGO";
@@ -102,9 +107,9 @@ public class TableroTest {
     @Test
     public void Test09NoPuedoColocarUnaPalabraEnCasillerosOcupados(){
         Tablero tablero = new Tablero(15,15);
-        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
-        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
-        Palabra palabra = new Palabra("MANGO",coordsInicio,coordsFin);
+        List<Integer> coordsInicio = Arrays.asList(0, 0);
+        List<Integer> coordsFin = Arrays.asList(0, 4);
+        Palabra palabra = new Palabra("MANGO",true);
         tablero.getCasillero(0,0).colocarLetra('A',true);
 
 
@@ -121,7 +126,12 @@ public class TableroTest {
         assertFalse(colocadas);
     }
 
+    @Test
+    public void Test10NoPuedoColocarPalabraFueraDeLimites(){
+        Tablero tablero = new Tablero(5, 5);
+        Palabra palabra = new Palabra("PALABRA", true);
+
+        assertFalse(tablero.asignarCoordenadasPalabras(palabra, 0, 5));
+    }
+
 }
-
-
-

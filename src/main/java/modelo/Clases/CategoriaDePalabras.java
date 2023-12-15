@@ -1,9 +1,8 @@
-package categoria_de_palabras;
+package modelo.Clases;
 //El usuario de la clase obtiene un arreglo de n strings de la categoria que indique, garantizando que son todos distintos.
 //Se devuelve una excepcion si la categoria no existe, o si n es mayor que la cantidad de palabras por listas
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 public class CategoriaDePalabras {
     public static final int PALABRAS_POR_LISTA = 40;
     public static final int CANT_LISTAS = 2;
@@ -47,7 +46,7 @@ public class CategoriaDePalabras {
                     do{
                         int indiceRandom = (int)(Math.random()*(float)PALABRAS_POR_LISTA);
                         repeat = false;
-                        for(int z=0; z<listaDeLargoN.length; z++){
+                        for(int z=0; z< (listaDeLargoN.length -1) ; z++){
                             if(this.listasDePalabras[x][indiceRandom].equals(listaDeLargoN[z])){
                                 repeat=true;
                                 break;
@@ -62,19 +61,6 @@ public class CategoriaDePalabras {
             }
         }
         throw new IllegalArgumentException("No se encontro la coleccion indicada");
-    }
-
-    @Test
-    public void test01LaColeccionObtenidaEsDeLargoN() {
-        // Arrange (preparación)
-        CategoriaDePalabras cat = new CategoriaDePalabras();
-        // Act (acción)
-        String[] coleccion = cat.obtenerColeccion("FRUTAS", 8);
-        for (int x=0; x<8; x++){
-            System.out.println(coleccion[x]);
-        }
-        // Assert (verificación)
-        assertEquals(8, coleccion.length);
     }
 }
 

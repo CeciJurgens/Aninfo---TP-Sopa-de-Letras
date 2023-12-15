@@ -4,8 +4,8 @@ import java.util.Random;
 public class Casillero {
     private int coordenadaX;
     private int coordenadaY;
-    public boolean estaOcupado;
-    public char letra;
+    private boolean estaOcupado;
+    private char letra;
 
 
     public Casillero(int unaCoordenadaX, int unaCoordenadaY) {
@@ -18,7 +18,7 @@ public class Casillero {
     }
 
     public char getLetra() {
-        System.out.print(this.letra);
+        //System.out.print(this.letra);
         return this.letra;
     }
 

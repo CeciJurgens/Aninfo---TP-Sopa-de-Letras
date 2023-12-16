@@ -40,7 +40,7 @@ public class Tablero{
     }
 
     public boolean asignarCoordenadasPalabras(Palabra palabra, int x, int y){
-        if (palabra.getPalabraString().length() > filas || palabra.getPalabraString().length() > columnas){
+        if (palabra.getLongitudPalabra() > filas || palabra.getLongitudPalabra() > columnas){
             return false;
         }
 

@@ -5,12 +5,13 @@ import java.util.List;
 public class Juego{
 
     private Tablero tablero;
-    private CategoriaDePalabras categoriaPalabras;
+    private String[] coleccionPalabras;
     private boolean seHaGanado;
 
-    public Juego() {
+    //Sugiero agregar a obtenerCollecion un parametro que indique logitud max por c/palabra de la coleccion.
+    public Juego(String unaCategoriaPalabras, int cantidadPalabras) {
         this.tablero = new Tablero(15,20); //tablero 15x20
-        this.categoriaPalabras = new CategoriaDePalabras();
+        this.coleccionPalabras = new CategoriaDePalabras().obtenerColeccion(unaCategoriaPalabras, cantidadPalabras);
         this.seHaGanado = false;
     }
 }

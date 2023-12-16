@@ -8,6 +8,7 @@ public class Juego{
     private Tablero tablero;
     private String[] coleccionPalabras;
     private boolean seHaGanado;
+    private List<Palabra> palabrasJuego;
 
     //Sugiero agregar a obtenerCollecion un parametro que indique logitud max por c/palabra de la coleccion.
     public Juego(String unaCategoriaPalabras, int cantidadPalabras){
@@ -15,7 +16,8 @@ public class Juego{
         this.coleccionPalabras = new CategoriaDePalabras().obtenerColeccion(unaCategoriaPalabras, cantidadPalabras);
         this.seHaGanado = false;
         Random rd = new Random();
-        colocarPalabrasEnTablero(listadoIntanciasPalabra(cantidadPalabras), cantidadPalabras);
+        this.palabrasJuego = listadoIntanciasPalabra(cantidadPalabras);
+        colocarPalabrasEnTablero(this.palabrasJuego, cantidadPalabras);
     }
 
     private List<Palabra> listadoIntanciasPalabra(int cantidadPalabras){

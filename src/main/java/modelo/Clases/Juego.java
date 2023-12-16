@@ -28,7 +28,7 @@ public class Juego{
 
     private void colocarPalabrasEnTablero(List<Palabra> listaPalabras, int cantidadPalabras){
         for(i=0; i<cantidadPalabras ; i++){
-            this.tablero.asignarCoordenadasPalabras(listaPalabras[i],rd.nextInt());
+            this.tablero.asignarCoordenadasPalabras(listaPalabras[i],rd.nextInt(), rd.nextInt());
             i++;
         }
     }

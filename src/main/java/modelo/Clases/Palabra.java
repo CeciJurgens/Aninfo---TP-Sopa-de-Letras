@@ -54,8 +54,9 @@ public class Palabra{
     public void setCoordenadasFin(int x,int y){
         this.coordenadasFin.set(0,x);
         this.coordenadasFin.set(1,y);
-
     }
 
-
+    public int getLongitudPalabra(){
+        return this.palabraStr.length();
+    }
 }

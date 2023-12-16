@@ -13,10 +13,5 @@ public class Juego{
         this.tablero = new Tablero(15,20); //tablero 15x20
         this.coleccionPalabras = new CategoriaDePalabras().obtenerColeccion(unaCategoriaPalabras, cantidadPalabras);
         this.seHaGanado = false;
-        //colocarPalabraEnTablero();
-    }
-
-    private void colocarPalabrasEnTablero(){
-    //Se utiliza para settear tablero que utilizará durante el juego     
     }
 }

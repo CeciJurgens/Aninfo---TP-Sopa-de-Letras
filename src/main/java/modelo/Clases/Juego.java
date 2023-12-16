@@ -30,5 +30,6 @@ public class Juego{
         for(i=0; i<cantidadPalabras ; i++){
             this.tablero.asignarCoordenadasPalabras(listaPalabras[i],rd.nextInt());
             i++;
+        }
     }
 }

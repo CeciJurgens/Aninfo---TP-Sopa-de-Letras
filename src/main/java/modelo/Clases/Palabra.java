@@ -64,4 +64,23 @@ public class Palabra{
     public int getLongitudPalabra(){
         return this.palabraStr.length();
     }
+
+    public boolean getIsEsHorizontal() {
+        return esHorizontal;
+    }
+
+    public void setEncontrada(boolean encontrada) {
+        this.encontrada = encontrada;
+    }
+
+    public String toString() {
+        return "Palabra{" +
+                "palabraStr='" + palabraStr + '\'' +
+                ", coordenadasInicio=" + coordenadasInicio +
+                ", coordenadasFin=" + coordenadasFin +
+                ", encontrada=" + encontrada +
+                ", esHorizontal=" + esHorizontal +
+                '}';
+    }
 }
+

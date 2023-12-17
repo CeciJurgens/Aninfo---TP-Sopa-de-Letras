@@ -1,13 +1,8 @@
 import modelo.Clases.Casillero;
 import modelo.Clases.Palabra;
 import modelo.Clases.Tablero;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -131,7 +126,10 @@ public class TableroTest {
         Palabra palabra = new Palabra("MANGO",true);
 
         tablero.asignarCoordenadasPalabras(palabra,0,0);
-        boolean colocadas = tablero.cambiarEstadoCasilleros(palabra.getCoordenadasInicio(),palabra.getCoordenadasFin());
+
+        //Suponiendo que la palabra esta horizontal
+        boolean estaHorizontal = true;
+        boolean colocadas = tablero.cambiarEstadoCasilleros(estaHorizontal,palabra.getCoordenadasInicio(),palabra.getCoordenadasFin());
 
         tablero.mostrarTablero();
         assertTrue(colocadas);

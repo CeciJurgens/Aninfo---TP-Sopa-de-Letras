@@ -1,4 +1,5 @@
 package modelo.Clases;
+
 import java.io.InputStream;
 import java.util.*;
 
@@ -9,12 +10,18 @@ public class Juego{
     private String[] coleccionPalabras;
     private List<Palabra> palabrasJuego;
 
+    private static final int TIEMPO_MAXIMO = 180;// Tiempo máximo basado en segundos (3 minutos)
+    private  int tiempoRestante;
+    private long tiempoInicio; // Inicio del jeugo en milisegundos
+
     //Sugiero agregar a obtenerCollecion un parametro que indique logitud max por c/palabra de la coleccion.
     public Juego(String unaCategoriaPalabras, int cantidadPalabras){
         this.tablero = new Tablero(15,15); //tablero 15x20
         this.coleccionPalabras = new CategoriaDePalabras().obtenerColeccion(unaCategoriaPalabras, cantidadPalabras);
         this.palabrasJuego = listadoIntanciasPalabra(cantidadPalabras);
         colocarPalabrasEnTablero(this.palabrasJuego, cantidadPalabras);
+        this.tiempoRestante = TIEMPO_MAXIMO;
+        this.tiempoInicio = System.currentTimeMillis(); // Almacena el tiempo de inicio
     }
 
     private List<Palabra> listadoIntanciasPalabra(int cantidadPalabras){
@@ -48,10 +55,6 @@ public class Juego{
         return gano;
     }
 
-    public boolean perdioJuego(){
-        //TODO Si agregamos condiciones para perder u tiempo aca va un if tiempo < 0 -> perdio.
-        return false;
-    }
 
     public boolean encontrarPalabra(List<Integer> coordenadaInicio, List<Integer> coordenadaFin){
         for (Palabra palabra: this.palabrasJuego) {
@@ -79,12 +82,40 @@ public class Juego{
     }
 
 
+    public void actualizarTiempo(){
+        tiempoRestante--;
+    }
+
+
     public void pedirCoordenadasPantalla(InputStream inputStream){
         Scanner scanner = new Scanner(System.in);
 
-        tablero.mostrarTablero();
+        long tiempoInicio = System.currentTimeMillis();
+        final int[] tiempoRestante = {TIEMPO_MAXIMO};
+        boolean[] tiempoTerminado = {false};
 
-        while (!ganoJuego()) {
+        Thread tiempoThread = new Thread(() ->{
+            while(!ganoJuego() && tiempoRestante[0] > 0){
+                long tiempoTranscurrido = (System.currentTimeMillis() - tiempoInicio) / 1000;
+                tiempoRestante[0] = TIEMPO_MAXIMO - (int) tiempoTranscurrido;
+
+                try{
+                    Thread.sleep(1000);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+            tiempoTerminado[0] = true;
+        });
+        tiempoThread.start();
+
+        tablero.mostrarTablero(); // Mostrar el tablero
+
+        while (!ganoJuego() && !tiempoTerminado[0]) {
+            mostrarPalabrasRestantes(); // Mostrar palabras restantes antes del input
+
+            System.out.println("\nTiempo restante: " + String.format("%02d:%02d", tiempoRestante[0] / 60, tiempoRestante[0] % 60));
+
             boolean coordenadasValidas = false;
             List<Integer> coordenadaInicio = null;
             List<Integer> coordenadaFin = null;
@@ -93,15 +124,17 @@ public class Juego{
                 try {
                     System.out.println("Ingresa las coordenadas de inicio (fila columna):");
                     int filaInicio = scanner.nextInt();
-                    int columnaInicio = scanner.nextInt();
+                    String letraInicio = scanner.next().toUpperCase();
+                    int columnaInicio = letraInicio.charAt(0) - 'A';
+
+                    coordenadaInicio = Arrays.asList(filaInicio, columnaInicio);
 
                     System.out.println("Ingresa las coordenadas de fin (fila columna):");
                     int filaFin = scanner.nextInt();
-                    int columnaFin = scanner.nextInt();
+                    String letraFin = scanner.next().toUpperCase();
+                    int columnaFin = letraFin.charAt(0) - 'A';
 
-                    coordenadaInicio = Arrays.asList(filaInicio, columnaInicio);
                     coordenadaFin = Arrays.asList(filaFin, columnaFin);
-
 
                     // Verificar si las coordenadas están dentro del rango permitido
                     if (coordenadasDentroDeRango(coordenadaInicio) && coordenadasDentroDeRango(coordenadaFin)) {
@@ -117,22 +150,47 @@ public class Juego{
 
             boolean palabraEncontrada = encontrarPalabra(coordenadaInicio, coordenadaFin);
 
-            tablero.mostrarTablero();
+            tablero.mostrarTablero(); // Mostrar el tablero
 
             if (palabraEncontrada) {
                 System.out.println("¡Palabra encontrada!");
             } else {
                 System.out.println("No se encontró ninguna palabra con esas coordenadas.");
             }
+            actualizarTiempo();
 
-            for (Palabra palabra : getPalabrasJuego()) {
-                if (!palabra.getEstadoPalabra()) {
-                    System.out.print(palabra.getPalabraString() + " ");
-                }
-            }
+        }
+        if (tiempoTerminado[0]){
+            System.out.println("\n¡Se acabó el tiempo! Has agotado el tiempo límite.");
+        } else {
+            System.out.println("\n¡Felicidades! Has encontrado todas las palabras.");
         }
 
-        System.out.println("¡Felicidades! Has encontrado todas las palabras.");
+        if (!tiempoTerminado[0]) {
+            mostrarPalabrasRestantes();
+        }
     }
 
+    private void mostrarPalabrasRestantes() {
+        List<Palabra> palabrasRestantes = getPalabrasRestantes();
+
+        if (palabrasRestantes.isEmpty()) {
+            System.out.println("\n¡Ya se encontraron todas las palabras!");
+        } else {
+            System.out.println("\nPalabras restantes:");
+            for (Palabra palabra : palabrasRestantes) {
+                System.out.print(palabra.getPalabraString() + " ");
+            }
+        }
+    }
+
+    private List<Palabra> getPalabrasRestantes() {
+        List<Palabra> palabrasRestantes = new ArrayList<>();
+        for (Palabra palabra : getPalabrasJuego()) {
+            if (!palabra.getEstadoPalabra()) {
+                palabrasRestantes.add(palabra);
+            }
+        }
+        return palabrasRestantes;
+    }
 }

@@ -119,7 +119,6 @@ public class Tablero{
         System.out.print("\n");
 
         String alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //String alphabet = " 0123456789";
         System.out.print(" "); //centra abecedario
         for (int i = 0; i < this.filas + 1; i++) {
             System.out.print(ANSI_PURPLE +   alphabet.charAt(i) +" " + ANSI_RESET);

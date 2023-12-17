@@ -3,7 +3,8 @@ import modelo.Clases.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-
+import java.util.Arrays;
+import java.util.Random;
 
 
 public class Main {
@@ -15,13 +16,14 @@ public class Main {
         final String ANSI_PURPLE = "\u001B[35m";
 
         System.out.println(ANSI_PURPLE + "\t \t \t \t \t \t \t  BIENVENIDO A LA SOPA DE LETRAS \n" + ANSI_RESET);
-        Juego juego = new Juego("FRUTAS", 5);
 
+        CategoriaDePalabras categoriaDePalabras = new CategoriaDePalabras();
+        Juego juego = new Juego(categoriaDePalabras.obtenerCategoriaAleatoria(), 5);
 
+        //Esto se deberia borrar
         for (Palabra palabra : juego.getPalabrasJuego()) {
             System.out.println(palabra);
         }
-
 
         String input = "1 2\n3 4\n"; // Coordenadas simuladas
         InputStream in = new ByteArrayInputStream(input.getBytes());

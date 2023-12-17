@@ -32,7 +32,7 @@ public class Juego{
     private void colocarPalabrasEnTablero(List<Palabra> listaPalabras, int cantidadPalabras){
         for(int i=0; i<cantidadPalabras ; i++){
             Random rd = new Random();
-            
+
             boolean asignacionExitosa = false;
             while (!asignacionExitosa) {
                 int x = rd.nextInt(14 - 1 + 1) + 1;

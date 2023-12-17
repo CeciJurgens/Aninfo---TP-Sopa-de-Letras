@@ -32,7 +32,13 @@ public class Juego{
     private void colocarPalabrasEnTablero(List<Palabra> listaPalabras, int cantidadPalabras){
         for(int i=0; i<cantidadPalabras ; i++){
             Random rd = new Random();
-            this.tablero.asignarCoordenadasPalabras(listaPalabras.get(i),rd.nextInt(14 - 1 + 1) + 1, rd.nextInt(14 - 1 + 1) + 1);
+            
+            boolean asignacionExitosa = false;
+            while (!asignacionExitosa) {
+                int x = rd.nextInt(14 - 1 + 1) + 1;
+                int y = rd.nextInt(14 - 1 + 1) + 1;
+                asignacionExitosa = this.tablero.asignarCoordenadasPalabras(listaPalabras.get(i), x, y);
+            }
         }
     }
 

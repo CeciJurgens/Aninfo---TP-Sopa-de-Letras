@@ -11,12 +11,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("BIENVENIDO A LA SOPA DE LETRAS");
+        final String ANSI_RESET = "\u001B[0m";
+        final String ANSI_PURPLE = "\u001B[35m";
+
+        System.out.println(ANSI_PURPLE + "\t \t \t \t \t \t \t  BIENVENIDO A LA SOPA DE LETRAS \n" + ANSI_RESET);
         Juego juego = new Juego("FRUTAS", 5);
+
 
         for (Palabra palabra : juego.getPalabrasJuego()) {
             System.out.println(palabra);
         }
+
 
         String input = "1 2\n3 4\n"; // Coordenadas simuladas
         InputStream in = new ByteArrayInputStream(input.getBytes());

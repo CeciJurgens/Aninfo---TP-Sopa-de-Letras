@@ -6,6 +6,7 @@ package modelo.Clases;
 public class CategoriaDePalabras {
     public static final int PALABRAS_POR_LISTA = 40;
     public static final int CANT_LISTAS = 2;
+    public static final int LARGO_MAXIMO = 10;
     private final String[][] listasDePalabras = {
         {   "ANANA", "BANANA", "CEREZA", "DURAZNO", "FRUTILLA",
             "KIWI", "LIMON", "MANDARINA", "NARANJA", "PALTA",
@@ -51,7 +52,7 @@ public class CategoriaDePalabras {
                                 repeat=true;
                                 break;
                             }
-                            else if(this.listasDePalabras[x][indiceRandom].length() > LARGO_TABLERO){
+                            else if(this.listasDePalabras[x][indiceRandom].length() > LARGO_MAXIMO){
                                 repeat=true;
                                 break;
                             }

@@ -20,14 +20,18 @@ public class Palabra{
         this.encontrada = false;
     }
     
-    //TODO: revisar en refactor
+    //TODO: revisar en refactor: cambie un poco el codigo para q no diga q se encontro una palabra si ya se la habia encontrado antes.
     public boolean actualizacionEstadoPalabra(List<Integer> coordsSeleccionadasInicio, List<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
+        boolean seEncontro = false;
 
         if (this.coordenadasInicio.equals(coordsSeleccionadasInicio)  && this.coordenadasFin.equals(coordsSeleccionadasFin)){
-            this.encontrada = true;
+            seEncontro = true;
         }
-        return  estadoPalabra != this.encontrada;
+        if(seEncontro == true && estadoPalabra == false){
+            this.encontrada = true;
+            return true;}
+        return  false;
     }
     
     public List<Integer> getCoordenadasInicio(){
@@ -45,6 +49,7 @@ public class Palabra{
     public String getPalabraString(){
         return this.palabraStr;
     }
+
 
     public void setCoordenadasInicio(int x,int y){
         this.coordenadasInicio.set(0,x);

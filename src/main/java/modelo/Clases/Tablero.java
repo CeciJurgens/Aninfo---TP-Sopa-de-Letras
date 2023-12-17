@@ -8,6 +8,10 @@ public class Tablero{
     private int filas;
     private int columnas;
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+
+
     public Tablero(int filas, int columnas) {
 
         this.filas = filas;
@@ -17,6 +21,8 @@ public class Tablero{
     }
 
     private void crearTableroVacio() {
+        //public static final String GUIA = "\u001B[35m";
+
         for (int x = 0; x < filas; x++) {
             for (int y = 0; y < columnas; y++) {
                 tablero[x][y] = new Casillero(x, y);
@@ -38,6 +44,16 @@ public class Tablero{
         }
         return true;
     }
+
+    public boolean cambiarEstadoCasilleros( List<Integer> coordsInicio,List<Integer> coordsFin){
+        for(int i= coordsInicio.get(0); i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
+            for(int j = coordsInicio.get(1); j <= (coordsFin.get(1) - coordsInicio.get(1)); j++){
+                tablero[i][j].contieneLetraEncontrada();
+            }
+        }
+        return true;
+    }
+
 
     public boolean asignarCoordenadasPalabras(Palabra palabra, int x, int y){
         if (palabra.getLongitudPalabra() > filas || palabra.getLongitudPalabra() > columnas){
@@ -77,14 +93,26 @@ public class Tablero{
         }
     }
 
-    // TODO: borrar función provisorio para chequeos
     public void mostrarTablero() {
+        System.out.print("\n");
+
+        String alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        System.out.print(" "); //centra abecedario
+        for (int i = 0; i < this.filas + 1; i++) {
+            System.out.print(ANSI_PURPLE +   alphabet.charAt(i) + " " + ANSI_RESET);
+        }
+
         for (int x = 0; x < filas; x++) {
             System.out.print("\n");
+            if(x<10){System.out.print(ANSI_PURPLE + x + "  " + ANSI_RESET);}
+            else{System.out.print(ANSI_PURPLE + x + " " + ANSI_RESET);}
+
             for (int y = 0; y < columnas; y++) {
                 tablero[x][y].getLetra();
             }
+
         }
+        System.out.print("\n");
     }
 
 }

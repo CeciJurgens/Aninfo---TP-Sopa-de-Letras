@@ -1,5 +1,6 @@
 package modelo.Clases;
 import java.util.List;
+import java.util.Random;
 
 
 public class Tablero{
@@ -37,7 +38,7 @@ public class Tablero{
         //Chequeo que ninguno este ocupado
         for(int i=0; i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
             for(int j = 0; j <= (coordsFin.get(1) - coordsInicio.get(1)); j++){
-                if(tablero[x+i][y+j].estaOcupado()){
+                if(x + i >= 0 && x + i < filas && y + j >= 0 && y + j < columnas && tablero[x+i][y+j].estaOcupado()){
                     return false;
                 }
             }
@@ -45,10 +46,15 @@ public class Tablero{
         return true;
     }
 
-    public boolean cambiarEstadoCasilleros( List<Integer> coordsInicio,List<Integer> coordsFin){
-        for(int i= coordsInicio.get(0); i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
-            for(int j = coordsInicio.get(1); j <= (coordsFin.get(1) - coordsInicio.get(1)); j++){
-                tablero[i][j].contieneLetraEncontrada();
+    public boolean cambiarEstadoCasilleros( boolean esHorizontal, List<Integer> coordsInicio,List<Integer> coordsFin){
+
+        if (esHorizontal){
+            for (int i = coordsInicio.get(1); i <= coordsInicio.get(1)+ (coordsFin.get(1) - coordsInicio.get(1))  ; i++){
+                tablero[coordsInicio.get(0)][i].contieneLetraEncontrada();
+            }
+        } else {
+            for (int i = coordsInicio.get(0); i <= coordsInicio.get(0) + (coordsFin.get(0) - coordsInicio.get(0)) ; i++){
+                tablero[i][coordsInicio.get(1)].contieneLetraEncontrada();
             }
         }
         return true;
@@ -57,6 +63,10 @@ public class Tablero{
 
     public boolean asignarCoordenadasPalabras(Palabra palabra, int x, int y){
         if (palabra.getLongitudPalabra() > filas || palabra.getLongitudPalabra() > columnas){
+            return false;
+        }
+
+        if (palabra.getLongitudPalabra() + x > 15 || palabra.getLongitudPalabra() + y > 15){
             return false;
         }
 
@@ -70,7 +80,6 @@ public class Tablero{
             for(int j=0; j <= (coordsFin.get(1) - coordsInicio.get(1));j++){
                 if (palabra.getIsEsHorizontal()){
                     tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i* coordsFin.get(0) + j), true);
-
                 } else{
                     tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i), true);
                 }
@@ -78,8 +87,15 @@ public class Tablero{
         }
 
         //TODO:Asignar las coordenadas a la palabra
-        palabra.setCoordenadasInicio(x,y);
-        palabra.setCoordenadasFin(x + coordsFin.get(0) - coordsInicio.get(0), y + coordsFin.get(1) - coordsInicio.get(1) );
+
+        //palabra.setCoordenadasInicio(x,y);
+        if (palabra.getIsEsHorizontal()){
+            palabra.setCoordenadasInicio(x,y);
+            palabra.setCoordenadasFin(x, y+palabra.getLongitudPalabra()-1);
+        } else{
+            palabra.setCoordenadasInicio(x,y);
+            palabra.setCoordenadasFin(x+ palabra.getLongitudPalabra()-1, y);
+        }
         return true;
     }
 

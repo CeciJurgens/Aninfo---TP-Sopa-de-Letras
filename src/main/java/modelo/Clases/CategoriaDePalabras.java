@@ -95,5 +95,16 @@ public class CategoriaDePalabras {
         }
         throw new IllegalArgumentException("No se encontro la coleccion indicada");
     }
+
+    public String obtenerCategoriaAleatoria() {
+        String[] categorias = obtenerCategorias();
+        if (categorias.length > 0) {
+            Random random = new Random();
+            int indiceAleatorio = random.nextInt(categorias.length);
+            return categorias[indiceAleatorio];
+        } else {
+            throw new IllegalStateException("No hay categorías disponibles.");
+        }
+    }
 }
 

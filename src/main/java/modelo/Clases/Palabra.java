@@ -20,14 +20,18 @@ public class Palabra{
         this.encontrada = false;
     }
     
-    //TODO: revisar en refactor
+    //TODO: revisar en refactor: cambie un poco el codigo para q no diga q se encontro una palabra si ya se la habia encontrado antes.
     public boolean actualizacionEstadoPalabra(List<Integer> coordsSeleccionadasInicio, List<Integer> coordsSeleccionadasFin){
         boolean estadoPalabra = this.encontrada;
+        boolean seEncontro = false;
 
         if (this.coordenadasInicio.equals(coordsSeleccionadasInicio)  && this.coordenadasFin.equals(coordsSeleccionadasFin)){
-            this.encontrada = true;
+            seEncontro = true;
         }
-        return  estadoPalabra != this.encontrada;
+        if(seEncontro == true && estadoPalabra == false){
+            this.encontrada = true;
+            return true;}
+        return  false;
     }
     
     public List<Integer> getCoordenadasInicio(){
@@ -46,6 +50,7 @@ public class Palabra{
         return this.palabraStr;
     }
 
+
     public void setCoordenadasInicio(int x,int y){
         this.coordenadasInicio.set(0,x);
         this.coordenadasInicio.set(1,y);
@@ -54,8 +59,28 @@ public class Palabra{
     public void setCoordenadasFin(int x,int y){
         this.coordenadasFin.set(0,x);
         this.coordenadasFin.set(1,y);
-
     }
 
+    public int getLongitudPalabra(){
+        return this.palabraStr.length();
+    }
 
+    public boolean getIsEsHorizontal() {
+        return esHorizontal;
+    }
+
+    public void setEncontrada(boolean encontrada) {
+        this.encontrada = encontrada;
+    }
+
+    public String toString() {
+        return "Palabra{" +
+                "palabraStr='" + palabraStr + '\'' +
+                ", coordenadasInicio=" + coordenadasInicio +
+                ", coordenadasFin=" + coordenadasFin +
+                ", encontrada=" + encontrada +
+                ", esHorizontal=" + esHorizontal +
+                '}';
+    }
 }
+

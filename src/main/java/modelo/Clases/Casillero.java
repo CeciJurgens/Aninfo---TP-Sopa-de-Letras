@@ -1,24 +1,33 @@
 package modelo.Clases;
 import java.util.Random;
 
+
+
 public class Casillero {
     private int coordenadaX;
     private int coordenadaY;
     private boolean estaOcupado;
     private char letra;
 
+    public static final String ENCONTRADO = "\033[34m";
+    public static final String NO_ENCONTRADO = "\033[0;97m";
+
+    public static final String ANSI_RESET = "\u001B[0m";
+
+    private String color;
 
     public Casillero(int unaCoordenadaX, int unaCoordenadaY) {
         this.coordenadaX = unaCoordenadaX;
         this.coordenadaY = unaCoordenadaY;
         this.estaOcupado = false;
+        this.color = NO_ENCONTRADO;
 
         Random r = new Random();
         this.letra = (char) (r.nextInt(26) + 'A');
     }
 
     public char getLetra() {
-        //System.out.print(this.letra);
+        System.out.print(this.color + this.letra + " " + ANSI_RESET);
         return this.letra;
     }
 
@@ -46,5 +55,9 @@ public class Casillero {
 
     public int getCoordenadaY(){
         return coordenadaY;
+    }
+
+    public void contieneLetraEncontrada(){
+        this.color = ENCONTRADO;
     }
 }

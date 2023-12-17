@@ -86,4 +86,9 @@ public class PalabraTest {
         assertEquals(Arrays.asList(4, 4), palabra.getCoordenadasFin());
     }
 
+    @Test
+    public void Test10GetLongitudPalabra(){
+        assertEquals(5, palabra.getLongitudPalabra());
+    }
+
 }

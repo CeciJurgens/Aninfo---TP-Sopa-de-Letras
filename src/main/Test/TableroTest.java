@@ -1,13 +1,8 @@
 import modelo.Clases.Casillero;
 import modelo.Clases.Palabra;
 import modelo.Clases.Tablero;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,8 +58,6 @@ public class TableroTest {
     @Test
     public void Test06SePuedeColocarUnaPalabraEnCasillerosVacios(){
         Tablero tablero = new Tablero(15,15);
-        ArrayList<Integer> coordsInicio = new ArrayList<>(Arrays.asList(0, 0));
-        ArrayList<Integer> coordsFin = new ArrayList<>(Arrays.asList(0, 4));
         Palabra palabra = new Palabra("MANGO",true);
 
         assertTrue(tablero.puedeColocarse(palabra,0,0));
@@ -75,8 +68,6 @@ public class TableroTest {
         Tablero tablero = new Tablero(5,5);
         tablero.getCasillero(0,0).colocarLetra('A',true); //al pertenecer a una palabra el caracter cambia
 
-        List<Integer> coordsInicio = Arrays.asList(0, 0);
-        List<Integer> coordsFin = Arrays.asList(0, 4);
         Palabra palabra = new Palabra("MANGO",true);
 
         assertFalse(tablero.puedeColocarse(palabra,0,0));
@@ -85,8 +76,6 @@ public class TableroTest {
     @Test
     public void Test08ColocarUnaPalabraEnCasillerosVacios(){
         Tablero tablero = new Tablero(15,15);
-        List<Integer> coordsInicio = Arrays.asList(0, 0);
-        List<Integer> coordsFin = Arrays.asList(0, 4);
         Palabra palabra = new Palabra("MANGO",true);
 
         tablero.asignarCoordenadasPalabras(palabra,0,0);
@@ -100,15 +89,12 @@ public class TableroTest {
                 colocadas = false;
             }
         }
-        //tablero.mostrarTablero();
         assertTrue(colocadas);
     }
 
     @Test
     public void Test09NoPuedoColocarUnaPalabraEnCasillerosOcupados(){
         Tablero tablero = new Tablero(15,15);
-        List<Integer> coordsInicio = Arrays.asList(0, 0);
-        List<Integer> coordsFin = Arrays.asList(0, 4);
         Palabra palabra = new Palabra("MANGO",true);
         tablero.getCasillero(0,0).colocarLetra('A',true);
 
@@ -132,6 +118,21 @@ public class TableroTest {
         Palabra palabra = new Palabra("PALABRA", true);
 
         assertFalse(tablero.asignarCoordenadasPalabras(palabra, 0, 5));
+    }
+
+    @Test
+    public void Test11CambiarColorDeCasilleroAEncontrado(){
+        Tablero tablero = new Tablero(15,15);
+        Palabra palabra = new Palabra("MANGO",true);
+
+        tablero.asignarCoordenadasPalabras(palabra,0,0);
+
+        //Suponiendo que la palabra esta horizontal
+        boolean estaHorizontal = true;
+        boolean colocadas = tablero.cambiarEstadoCasilleros(estaHorizontal,palabra.getCoordenadasInicio(),palabra.getCoordenadasFin());
+
+        tablero.mostrarTablero();
+        assertTrue(colocadas);
     }
 
 }

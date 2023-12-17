@@ -124,13 +124,15 @@ public class Juego{
                 try {
                     System.out.println("Ingresa las coordenadas de inicio (fila columna):");
                     int filaInicio = scanner.nextInt();
-                    int columnaInicio = scanner.nextInt();
+                    String letraInicio = scanner.next().toUpperCase();
+                    int columnaInicio = letraInicio.charAt(0) - 'A';
 
                     coordenadaInicio = Arrays.asList(filaInicio, columnaInicio);
 
                     System.out.println("Ingresa las coordenadas de fin (fila columna):");
                     int filaFin = scanner.nextInt();
-                    int columnaFin = scanner.nextInt();
+                    String letraFin = scanner.next().toUpperCase();
+                    int columnaFin = letraFin.charAt(0) - 'A';
 
                     coordenadaFin = Arrays.asList(filaFin, columnaFin);
 
@@ -155,8 +157,6 @@ public class Juego{
             } else {
                 System.out.println("No se encontró ninguna palabra con esas coordenadas.");
             }
-
-            // Actualizar el tiempo después de cada jugada
             actualizarTiempo();
 
         }
@@ -166,34 +166,31 @@ public class Juego{
             System.out.println("\n¡Felicidades! Has encontrado todas las palabras.");
         }
 
-        tablero.mostrarTablero(); // Mostrar el tablero
-
-        for (Palabra palabra : getPalabrasJuego()) {
-            if (palabra.getEstadoPalabra()) {
-                System.out.print(palabra.getPalabraString() + " ");
-            }
-        }
-
         if (!tiempoTerminado[0]) {
-            for (Palabra palabra : getPalabrasJuego()) {
-                if (!palabra.getEstadoPalabra()) {
-                    System.out.print(palabra.getPalabraString() + " ");
-                }
-            }
+            mostrarPalabrasRestantes();
         }
-
-
     }
 
     private void mostrarPalabrasRestantes() {
-        System.out.println("\nPalabras restantes:");
-        for (Palabra palabra : getPalabrasJuego()) {
-            if (!palabra.getEstadoPalabra()) {
+        List<Palabra> palabrasRestantes = getPalabrasRestantes();
+
+        if (palabrasRestantes.isEmpty()) {
+            System.out.println("\n¡Ya se encontraron todas las palabras!");
+        } else {
+            System.out.println("\nPalabras restantes:");
+            for (Palabra palabra : palabrasRestantes) {
                 System.out.print(palabra.getPalabraString() + " ");
             }
         }
-        System.out.println();
     }
 
-
+    private List<Palabra> getPalabrasRestantes() {
+        List<Palabra> palabrasRestantes = new ArrayList<>();
+        for (Palabra palabra : getPalabrasJuego()) {
+            if (!palabra.getEstadoPalabra()) {
+                palabrasRestantes.add(palabra);
+            }
+        }
+        return palabrasRestantes;
+    }
 }

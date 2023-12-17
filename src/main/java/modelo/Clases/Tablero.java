@@ -68,9 +68,15 @@ public class Tablero{
 
         for(int i=0;i <= (coordsFin.get(0) - coordsInicio.get(0));i++){
             for(int j=0; j <= (coordsFin.get(1) - coordsInicio.get(1));j++){
-                tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i* coordsFin.get(0) + j), true);
+                if (palabra.getIsEsHorizontal()){
+                    tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i* coordsFin.get(0) + j), true);
+
+                } else{
+                    tablero[x+i][y+j].colocarLetra(casillero_contenido.charAt(i), true);
+                }
             }
         }
+
         //TODO:Asignar las coordenadas a la palabra
         palabra.setCoordenadasInicio(x,y);
         palabra.setCoordenadasFin(x + coordsFin.get(0) - coordsInicio.get(0), y + coordsFin.get(1) - coordsInicio.get(1) );

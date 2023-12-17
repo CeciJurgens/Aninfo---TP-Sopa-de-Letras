@@ -1,9 +1,6 @@
 package modelo.Clases;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Juego{
@@ -102,8 +99,9 @@ public class Juego{
                     int filaFin = scanner.nextInt();
                     int columnaFin = scanner.nextInt();
 
-                    coordenadaInicio = List.of(filaInicio, columnaInicio);
-                    coordenadaFin = List.of(filaFin, columnaFin);
+                    coordenadaInicio = Arrays.asList(filaInicio, columnaInicio);
+                    coordenadaFin = Arrays.asList(filaFin, columnaFin);
+
 
                     // Verificar si las coordenadas están dentro del rango permitido
                     if (coordenadasDentroDeRango(coordenadaInicio) && coordenadasDentroDeRango(coordenadaFin)) {

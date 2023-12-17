@@ -3,6 +3,8 @@ package modelo.Clases;
 //Se devuelve una excepcion si la categoria no existe, o si n es mayor que la cantidad de palabras por listas
 
 
+import java.util.Random;
+
 public class CategoriaDePalabras {
     public static final int PALABRAS_POR_LISTA = 40;
     public static final int CANT_LISTAS = 2;
@@ -44,7 +46,9 @@ public class CategoriaDePalabras {
                 String[] listaDeLargoN = new String[n];
                 boolean repeat;
                 for(int y=0; y<n; y++){
+                    /*
                     do{
+
                         int indiceRandom = (int)(Math.random()*(float)PALABRAS_POR_LISTA);
                         repeat = false;
                         for(int z=0; z< (listaDeLargoN.length -1) ; z++){
@@ -61,6 +65,30 @@ public class CategoriaDePalabras {
                             listaDeLargoN[y] = this.listasDePalabras[x][indiceRandom];
                         }
                     }while (repeat);
+
+                     */
+                    do {
+                        //int indiceRandom = (int) (Math.random() * (float) PALABRAS_POR_LISTA);
+                        Random rd = new Random();
+                        int indiceRandom = rd.nextInt(39 - 1 + 1) + 1;
+                        repeat = false;
+
+                        // Verificar si el índice generado está dentro del rango permitido
+                        if (indiceRandom >= 0 && indiceRandom < PALABRAS_POR_LISTA) {
+                            for (int z = 0; z < (listaDeLargoN.length - 1); z++) {
+                                if (this.listasDePalabras[x][indiceRandom].equals(listaDeLargoN[z]) ||
+                                        this.listasDePalabras[x][indiceRandom].length() > LARGO_MAXIMO) {
+                                    repeat = true;
+                                    break;
+                                }
+                            }
+                            if (!repeat) {
+                                listaDeLargoN[y] = this.listasDePalabras[x][indiceRandom];
+                            }
+                        } else {
+                            repeat = true; // Repetir si el índice está fuera del rango
+                        }
+                    } while (repeat);
                 }
                 return(listaDeLargoN);
             }

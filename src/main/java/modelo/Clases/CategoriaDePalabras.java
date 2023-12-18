@@ -70,7 +70,7 @@ public class CategoriaDePalabras {
                     do {
                         //int indiceRandom = (int) (Math.random() * (float) PALABRAS_POR_LISTA);
                         Random rd = new Random();
-                        int indiceRandom = rd.nextInt(39 - 1 + 1) + 1;
+                        int indiceRandom = rd.nextInt(39 - 1) + 1;
                         repeat = false;
 
                         // Verificar si el índice generado está dentro del rango permitido

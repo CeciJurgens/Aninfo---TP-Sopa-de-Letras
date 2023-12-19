@@ -26,11 +26,22 @@ public class CategoriaDePalabras {
             "HIPATIA", "ERATOSTENES", "GALILEO", "EPICTETO", "ISOCRATES",
             "HIPOCRATES", "NICOMACO", "ARQUELAO", "AXIARCO", "CLEANTES",
             "PARMENIDES", "ALCIBIADES", "HIPOLITO", "SOLON", "ARISTOFANES",
-            "ANAXIMENES", "CALLIAS", "MELISO", "TEOFRASTO", "XENOCRATES"
+            "ANAXIMENES", "CALLIAS", "MELISO", "TEOFRASTO", "XENOCRATES", "ZENON"
+        },{
+            "ITUZAINGO", "SACACHISPAS", "ACASSUSO", "MERLO", "FENIX", "UNION", "RIBER",
+            "SANMIGUEL", "ARGENTINO", "COLEGIALES", "COMUNICACIONES", "DEPORTIVOESPAÑOL",
+        },{
+            "FUTBOL", "BASQUET", "TENIS", "VOLEY", "HANDBALL", "RUGBY", "HOCKEY", "GOLF",
+            "BOXEO", "ATLETISMO", "NATACION", "CICLISMO", "PATINAJE", "ESCALADA", "SURF",
+            "SKATE", "KARATE", "JUDO", "TIRO", "TAEKWONDO", "ESGRIMA", "PINGPONG"
+        },{
+            "COTO", "BMW", "DIA", "PLAYADITO", "CHANEL", "HUAWEI", "MAROLIO", "SAMSUNG",
+            "GOOGLE", "APPLE", "NIKE", "ADIDAS", "PUMA", "SONY", "PEUGEOT", "CITROEN",
+            "ERICSON", "MOTOROLA", "BLACKBERRY" 
         }
     };
     private String[] categorias = {
-            "FRUTAS", "FILOSOFOS"
+            "FRUTAS", "FILOSOFOS", "EQUIPOS_B", "DEPORTES", "MARCAS"
     };
 
     public String[] obtenerCategorias(){

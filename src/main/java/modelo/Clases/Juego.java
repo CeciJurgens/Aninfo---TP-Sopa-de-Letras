@@ -143,6 +143,15 @@ public class Juego{
                         System.out.println("¡Coordenadas fuera de rango! Ingresa nuevamente.");
                     }
                 } catch (Exception e) {
+                    if (scanner.next().equals("c")) {
+                        for (Palabra palabra : getPalabrasJuego()) {
+                          System.out.println(palabra);
+                        }
+                        System.out.println();
+                        scanner.nextLine();
+                        continue;
+                    }
+
                     System.out.println("Error al ingresar coordenadas. Asegúrate de ingresar números enteros.");
                     scanner.nextLine(); // Limpiar el búfer del scanner para evitar un bucle infinito
                 }

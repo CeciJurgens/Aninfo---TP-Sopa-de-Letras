@@ -122,19 +122,23 @@ public class Juego{
 
             while (!coordenadasValidas) {
                 try {
-                    System.out.println("Ingresa las coordenadas de inicio (fila columna):");
-                    int filaInicio = scanner.nextInt();
-                    String letraInicio = scanner.next().toUpperCase();
-                    int columnaInicio = letraInicio.charAt(0) - 'A';
 
-                    coordenadaInicio = Arrays.asList(filaInicio, columnaInicio);
+                    System.out.println("Ingresa las coordenadas de inicio y fin (formato: FilaInicio ColumnaInicio - FilaFin ColumnaFin):");
+                    String input = scanner.nextLine();
 
-                    System.out.println("Ingresa las coordenadas de fin (fila columna):");
-                    int filaFin = scanner.nextInt();
-                    String letraFin = scanner.next().toUpperCase();
-                    int columnaFin = letraFin.charAt(0) - 'A';
+                    String[] coordenadas = input.split("-");
 
-                    coordenadaFin = Arrays.asList(filaFin, columnaFin);
+                    // Procesar las coordenadas de inicio
+                    String[] partesInicio = coordenadas[0].trim().split(" ");
+                    int FilaInicio = Integer.parseInt(partesInicio[0]);
+                    int ColumnaInicio = partesInicio[1].charAt(0) - 'A';
+
+                    String[] partesFin = coordenadas[1].trim().split(" ");
+                    int FilaFin = Integer.parseInt(partesFin[0]);
+                    int ColumnaFin = partesFin[1].charAt(0) - 'A';
+
+                    coordenadaInicio = Arrays.asList(FilaInicio, ColumnaInicio);
+                    coordenadaFin = Arrays.asList(FilaFin, ColumnaFin);
 
                     // Verificar si las coordenadas están dentro del rango permitido
                     if (coordenadasDentroDeRango(coordenadaInicio) && coordenadasDentroDeRango(coordenadaFin)) {

@@ -9,7 +9,7 @@ public class Casillero {
     private boolean estaOcupado;
     private char letra;
 
-    public static final String ENCONTRADO = "\033[34m";
+    public static final String ENCONTRADO = "\033[32m";
     public static final String NO_ENCONTRADO = "\033[0;97m";
 
     public static final String ANSI_RESET = "\u001B[0m";

@@ -20,11 +20,6 @@ public class Main {
         CategoriaDePalabras categoriaDePalabras = new CategoriaDePalabras();
         Juego juego = new Juego(categoriaDePalabras.obtenerCategoriaAleatoria(), 5);
 
-        //Esto se deberia borrar
-        for (Palabra palabra : juego.getPalabrasJuego()) {
-            System.out.println(palabra);
-        }
-
         String input = "1 2\n3 4\n"; // Coordenadas simuladas
         InputStream in = new ByteArrayInputStream(input.getBytes());
 

@@ -84,3 +84,24 @@ $ java -jar <sopaletras.jar>
 
 Fue desarrollado el proyecto mediante el entorno IntelliJ Idea. 
 
+
+## Notas de correccion
+
+Grupo corrector: Grupo 3
+
+Issues abiertos:
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/60
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/61
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/62
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/63
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/64
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/65
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/66
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/issues/67
+
+PRs abiertos:
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/pull/68
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/pull/69
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/pull/71
+- https://github.com/CeciJurgens/Aninfo---TP-Sopa-de-Letras/pull/70
+
